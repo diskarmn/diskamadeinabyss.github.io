@@ -1,0 +1,139 @@
+*{
+    padding:0;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    display:grid;
+    grid-template-areas: "header header header"
+                        "gambar main nav"
+                        "genre daftar daftar"
+                        "footer footer footer";
+    grid-template-columns: .5fr 1.5fr .6fr;
+    grid-template-rows: .5fr 1fr 1.3fr .3fr;
+    min-height: 100vh;
+
+}
+
+header, main, .gambar, nav, .des, .daftar, footer{
+    height: auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    grid-area: header;
+    color:black;
+    background-color: rgb(234,221,205);
+    font-size: 200%;
+    font-weight: bold;
+}
+main{
+    grid-area: main;
+    padding:30px;
+    font-size: 130%;
+    background-color: rgb(243, 236, 227);
+}
+.gambar{
+    grid-area: gambar;
+    padding:10px;
+    background-color: white;
+}
+.gambar img{
+    width: 170px;
+}
+nav{
+    grid-area: nav;
+    background-color: white;
+}
+nav ul a li{
+    list-style: none;
+    padding:10px 30px;
+    font-size: 130%;
+    font-weight: bold;
+    color:black;
+}
+nav ul a li:hover{
+    text-decoration: underline;
+}
+nav ul a{
+    text-decoration: none;
+}
+
+.des{
+    grid-area: genre;
+    padding:20px;
+    background-color: rgb(243, 236, 227);
+}
+table tr td{
+    font-size: 130%;
+}
+.daftar{
+    grid-area: daftar;
+    background-image: url(3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-gap: 30px;
+    padding:30px;
+}
+.dpict{
+    height: 130px;
+    overflow: hidden;
+    transition: .3s;
+    position: relative;
+}
+.dpict h1{
+    position: absolute;
+    color:white;
+    text-shadow: 0 0 3px black;
+    bottom:0;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: 110%;
+    opacity: 0;
+    transition: .3s;
+}
+.dpict:hover{
+    transform: scale(1.3);
+    transition: .3s;
+}
+.dpict:hover h1{
+    opacity: 1;
+}
+.dpict img{
+    width:100%;
+}
+footer{
+    grid-area: footer;
+    color:white;
+    background-color: black;
+    font-size: 130%;
+}
+@media screen and (max-width: 768px){
+
+.container{
+    grid-template-areas: "header header"
+                    "nav main"
+                    "gambar genre"
+                    "daftar daftar"
+                    "footer footer";
+grid-template-columns: .6fr 1fr;
+grid-template-rows: .2fr .1fr .35fr 1.2fr .1fr;
+}
+
+.gambar img{
+width: 100px;
+}
+main,nav ul a li,.des table tr td,footer{
+    font-size: 100%;
+}
+.daftar{
+    grid-template-columns: repeat(auto-fit, 80px);
+}
+.dpict{
+    height:80px;
+}
+}
